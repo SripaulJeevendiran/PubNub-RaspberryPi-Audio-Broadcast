@@ -22,7 +22,7 @@ def init():
 def _callback(message,channel):
 	
 	if message["type"]=="request" :      
-		print" Received message = ", message["play"]
+		print(" Received message = ", message["play"])
 		status=subprocess.call(["espeak","-s 120 -v en ",message["play"]], stdout=FNULL, stderr=subprocess.STDOUT)
 	
 		if status==0 :

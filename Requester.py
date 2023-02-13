@@ -24,7 +24,7 @@ def importData():
    		return read
 
    	except IOError:
-   		print "cannot open the file"
+   		print("cannot open the file")
    		sys.exit()
     
 def _callback(message,channel):
@@ -34,7 +34,7 @@ def _callback(message,channel):
 		lock.release()
 
 	elif message["status"]== "negative":
-		print "error in response"
+		print("error in response")
 
 	elif message["status"]== "done":
 		sys.exit()
@@ -48,7 +48,7 @@ def process_request():
 	sentence = importData().split(".")
 
 	for data in sentence :
-		print "sending message: ",data
+		print("sending message: ",data)
 		request={"type" : "request" , "play" : data}
 		pubnub.publish(pubnub_requestchannel, request)
 		lock.acquire()
